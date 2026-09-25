@@ -1,22 +1,32 @@
 # RRB JE Question Bank
 
-A responsive, dark-mode-ready RRB JE practice website with year-wise filtering and progressive question loading.
+Responsive RRB JE practice bank with clickable MCQ answers, progressive rendering, search, topic filtering, year filtering, and dark mode.
 
-## Current question bank
+## Current database
 - 2025: 595 questions (Numerical Ability, Reasoning, General Science)
-- 2024: 248 Numerical Ability + 217 Reasoning + 268 General Science questions
-- 2024 General Science is limited to the three requested topics: Physics, Chemistry and Biology
-- Total: 1,313 questions
+- 2024: 248 Numerical Ability + 217 Reasoning + 186 General Science questions
+- 2024 General Science added from the supplied RRB JE 2024 GA & GS PDF:
+  - Physics: 87
+  - Chemistry: 99
+- Total: 1,246 questions
 
-## 2024 General Science
-The supplied RRB JE 2024 General Science & Awareness PDF was used for the 2024 Science additions. Only Physics (87), Chemistry (99), and Biology (82) were imported. The source dates/shifts are not displayed on 2024 cards, consistent with the existing 2024 question presentation.
+### 2024 General Science
+For the 2024 questions, the cards intentionally show **only the topic pill**; shift/date metadata is not displayed.
 
-## Architecture
+The supplied GA & GS PDF contains sections for Physics, Chemistry, Biology, History, Geography, Polity, Economics, Art and Culture, Books & Author, Static GK and Current Affairs. It does **not** contain a Mathematics section. Therefore this update adds only the Physics and Chemistry questions supported by that PDF; no Mathematics questions were invented or taken from outside the supplied source.
+
+## Files
+- `index.html` — page shell
+- `css/style.v4.min.css` — styles and dark mode
+- `js/app.v7.min.js` — filtering, progressive rendering, answer interaction, theme and year filter
 - `data/questions.json` — human-readable master database
-- `data/questions.v7.min.json` — minified production database
-- `js/app.v7.min.js` — production app logic
-- `css/style.v4.min.css` — responsive styling and dark mode
-- `assets/railway-logo.webp` — optimized logo asset
+- `data/questions.v7.min.json` — production JSON
+- `assets/railway-logo.webp` — logo
+- `_headers` — Netlify caching rules
+- `robots.txt`, `sitemap.xml` — SEO files
 
-## 2024 filtering
-The year switcher supports 2025, 2024 and All Years. Topic filtering in General Science now includes Physics, Chemistry and Biology for 2024.
+## 2024 Reasoning
+Added 217 topic-wise RRB JE 2024 Reasoning questions from the supplied PDF. 2024 cards show only the Topic pill; shift/date metadata is not displayed.
+
+## 2024 Science
+Added 87 Physics and 99 Chemistry questions from the supplied RRB JE 2024 General Science & Awareness PDF. The source's original question numbering and answer keys are retained in the database records.
