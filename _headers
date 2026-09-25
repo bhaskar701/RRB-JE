@@ -1,0 +1,18 @@
+/*
+  Cache the page shell briefly, but always revalidate it so deployments appear immediately.
+  Versioned CSS/JS/images can be cached for a long time.
+*/
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/data/*
+  Cache-Control: public, max-age=86400

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rrbjeqbank.netlify.app/sitemap.xml
