@@ -1,86 +1,22 @@
-# RRB JE 2025–26 Complete Practice Bank
+# RRB JE Question Bank
 
-A fast, responsive RRB JE MCQ practice website built with plain HTML, CSS and JavaScript.
+A responsive, dark-mode-ready RRB JE practice website with year-wise filtering and progressive question loading.
 
-## Repository structure
+## Current question bank
+- 2025: 595 questions (Numerical Ability, Reasoning, General Science)
+- 2024: 248 Numerical Ability + 217 Reasoning + 268 General Science questions
+- 2024 General Science is limited to the three requested topics: Physics, Chemistry and Biology
+- Total: 1,313 questions
 
-```text
-.
-├── index.html
-├── assets/
-│   └── railway-logo.webp
-├── css/
-│   └── style.v2.min.css
-├── js/
-│   └── app.v2.min.js
-├── data/
-│   ├── questions.json
-│   └── questions.v2.min.json
-├── robots.txt
-├── sitemap.xml
-├── _headers
-└── README.md
-```
+## 2024 General Science
+The supplied RRB JE 2024 General Science & Awareness PDF was used for the 2024 Science additions. Only Physics (87), Chemistry (99), and Biology (82) were imported. The source dates/shifts are not displayed on 2024 cards, consistent with the existing 2024 question presentation.
 
-## Adding questions
+## Architecture
+- `data/questions.json` — human-readable master database
+- `data/questions.v7.min.json` — minified production database
+- `js/app.v7.min.js` — production app logic
+- `css/style.v4.min.css` — responsive styling and dark mode
+- `assets/railway-logo.webp` — optimized logo asset
 
-Edit **`data/questions.json`**. Keep the same object structure:
-
-```json
-{
-  "section": "science",
-  "topic": "Physics",
-  "question": "What is the SI unit of force?",
-  "options": ["Joule", "Newton", "Watt", "Pascal"],
-  "answer": 1,
-  "date": "25/09/2026",
-  "shift": "Shift 1"
-}
-```
-
-Answer indexes are zero-based:
-
-- `0` = Option A
-- `1` = Option B
-- `2` = Option C
-- `3` = Option D
-
-Use these section values:
-
-- `numerical`
-- `reasoning`
-- `science`
-
-After editing `questions.json`, run the included build script to generate the minified production JSON used by the site.
-
-## Local build
-
-Requirements: Python 3.
-
-Run:
-
-```bash
-python tools/build_questions.py
-```
-
-This creates/updates:
-
-```text
-data/questions.v2.min.json
-```
-
-## GitHub + Netlify workflow
-
-1. Create a GitHub repository, e.g. `rrb-je-qbank`.
-2. Upload the contents of this folder to the repository root.
-3. Connect the repository to Netlify.
-4. Set the Netlify publish directory to `.` (the repository root).
-5. Every push to the selected GitHub branch can trigger a new Netlify deployment.
-
-The website remains a static site; no server is required.
-
-## Important
-
-The `_headers` file is useful when the site is hosted on Netlify. It is not interpreted by GitHub Pages.
-
-The website's UI and quiz interaction are kept in the existing HTML/CSS/JavaScript application. Questions are stored separately so the question bank can be maintained without editing the UI.
+## 2024 filtering
+The year switcher supports 2025, 2024 and All Years. Topic filtering in General Science now includes Physics, Chemistry and Biology for 2024.
